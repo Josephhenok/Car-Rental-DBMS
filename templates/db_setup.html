@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Database Setup</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    form { display: inline-block; margin-right: 0.75rem; }
+    button { padding: 0.6rem 1rem; }
+    .msg { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <h1>Database Setup</h1>
+  {% for m in messages %}<div class="msg">{{ m }}</div>{% endfor %}
+  <form method="post">{% csrf_token %}<input type="hidden" name="action" value="drop"><button>Drop Tables</button></form>
+  <form method="post">{% csrf_token %}<input type="hidden" name="action" value="create"><button>Create Tables</button></form>
+  <form method="post">{% csrf_token %}<input type="hidden" name="action" value="populate"><button>Populate Tables</button></form>
+
+  <p style="margin-top:1.5rem;">
+    Next: <a href="/admin/" target="_blank">Open Django Admin</a> to add/edit/delete rows.
+  </p>
+</body>
+</html>
+

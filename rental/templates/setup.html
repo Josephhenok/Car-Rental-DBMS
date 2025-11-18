@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset='utf-8'><title>SQLite Setup</title>
+<style>body{font-family:system-ui,sans-serif;margin:2rem}button{padding:.6rem 1rem}</style></head>
+<body><h1>SQLite Setup</h1>{% for m in messages %}<div>{{m}}</div>{% endfor %}
+<form method="post">{% csrf_token %}<button>Create tables & Load demo data</button></form>
+<p><a href="/admin/" target="_blank">Open Django Admin</a></p></body></html>

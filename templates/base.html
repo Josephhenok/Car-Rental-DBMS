@@ -1,0 +1,21 @@
+<!doctype html><html><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car Rental DB</title>
+<style>
+body{font-family:system-ui,Segoe UI,Helvetica,Arial,sans-serif;margin:2rem;max-width:1200px}
+h1{margin:0 0 1rem 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{border:1px solid #ddd;border-radius:12px;padding:14px}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:8px;border:1px solid #333;background:#111;color:#fff;text-decoration:none;cursor:pointer}
+.btn.secondary{background:#fff;color:#111;border-color:#aaa}
+.msg{padding:.5rem .8rem;border:1px solid #ddd;border-radius:8px;margin:.5rem 0}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{border:1px solid #eee;padding:8px;text-align:left;font-size:14px}
+thead{background:#fafafa}
+a{color:#0b5fff}
+small.mono{font-family:ui-monospace,Menlo,Consolas,monospace;color:#555}
+</style>
+</head><body>
+{% if messages %}{% for m in messages %}<div class="msg">{{ m }}</div>{% endfor %}{% endif %}
+{% block content %}{% endblock %}
+</body></html>

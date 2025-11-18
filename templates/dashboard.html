@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Car Rental Dashboard</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:24px;background:#0b0b0c;color:#eaeaea}
+  a,button{color:inherit;text-decoration:none}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+  .btn{border:1px solid #3a3a3a;padding:8px 12px;border-radius:10px;background:#16161a;cursor:pointer}
+  .btn.active{background:#2a2a30;border-color:#6a6a6a}
+  .spacer{flex:1}
+  table{border-collapse:collapse;width:100%;background:#121214;border-radius:12px;overflow:hidden}
+  th,td{border-bottom:1px solid #2a2a2a;padding:8px 10px;text-align:left;font-size:14px}
+  th{background:#1a1a1e;font-weight:600}
+  tr:hover td{background:#17171b}
+  .empty{opacity:.7;padding:24px;text-align:center}
+</style>
+</head>
+<body>
+  <div class="bar">
+    {% for t in tabs %}
+      <a class="btn {% if t.name == selected_name %}active{% endif %}" href="?table={{t.name}}">{{ t.label }}</a>
+    {% endfor %}
+    <div class="spacer"></div>
+    <a class="btn" href="/admin/" target="_blank">Open Admin</a>
+  </div>
+
+  {% if headers and rows %}
+  <table>
+    <tr>
+      {% for h in headers %}<th>{{ h }}</th>{% endfor %}
+    </tr>
+    {% for r in rows %}
+    <tr>
+      {% for c in r %}<td>{{ c }}</td>{% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <div class="empty">No data.</div>
+  {% endif %}
+</body>
+</html>
